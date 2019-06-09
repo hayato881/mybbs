@@ -18,7 +18,7 @@ if(isset($_SESSION['id'])&&$_SESSION['time']+3600>time()){
 if(!empty($_POST)){
 
   if($_SESSION['join']['name']!==''){
-  	$statemnt=$db->prepare('UPDATE members SET name=? WHERE id=?');
+  	  $statemnt=$db->prepare('UPDATE members SET name=? WHERE id=?');
   	  $statemnt->execute(array(
   		$_SESSION['join']['name'],
   		$_SESSION['id']
@@ -44,7 +44,7 @@ if(!empty($_POST)){
   if($_SESSION['join']['image']!==''&&!is_numeric($_SESSION['join']['image'])){
     unlink('../../member_picture/'.$member['picture']);
   	$statemnt=$db->prepare('UPDATE members SET picture=? WHERE id=?');
-  	echo $statemnt->execute(array(
+  	  $statemnt->execute(array(
   		$_SESSION['join']['image'],
   		$_SESSION['id']
   	));

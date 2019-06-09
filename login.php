@@ -2,10 +2,6 @@
 session_start();
 require('dbconnect.php');
 
-if($_cookie['email']!==''){
-  $email=$_COOKIE['email'];
-}
-
 if(!empty($_POST)){
   $email=$_POST['email'];
 
@@ -69,11 +65,6 @@ if(!empty($_POST)){
         <dt>・パスワード</dt>
         <dd>
           <input type="password" name="password" size="35" maxlength="255" value="<?php echo htmlspecialchars($_POST['password'],ENT_QUOTES); ?>" />
-        </dd>
-        <dt>・ログイン情報の記録</dt>
-        <dd>
-          <input id="save" type="checkbox" name="save" value="on">
-          <label for="save">次回からは自動的にログインする</label>
         </dd>
       </dl>
       <div>
