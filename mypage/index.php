@@ -24,7 +24,8 @@ $page=min($page,$maxPage);
 
 $start=($page-1)*5;
 
-$posts=$db->prepare('SELECT m.name,m.picture,p.* FROM members m,posts p WHERE m.id=p.member_id ORDER BY p.created DESC LIMIT ?,5');
+$posts=$db->prepare('SELECT p.* FROM posts p WHERE p.member_id=? ORDER BY p.created DESC LIMIT ?,5');
+$posts->execute(array($member['id']));
 $posts->bindparam(1,$start,PDO::PARAM_INT);
 $posts->execute();
 
